@@ -1,0 +1,46 @@
+Task: Design and implement a "shopping cart" mechanism for an online vendor.
+ - Add purchases to shopping cart.
+ - Program computes and reports total price for the shopping cart, using BASE PRICE, TAX (as applicable) and SHIPPING COST --- for each item.
+ - Each item has:
+    - name (String without spaces)
+    - price (double, dollars and cents)
+    - quantity (non-negative integer)
+    - weight (integer)
+
+Pricing Rules:
+ - Sales tax rate is 10% for clothing and electronics (w/ exception of states)
+ - Standard shipping cost - determined by: (20*(weight)) * quantity
+ - Premium shipping: standard shipping cost * 120%
+ - Assume each item is shipped separately.
+
+Provided skeleton class code
+
+Will need to derive SUBCLASSES for groceries, electronics, and clothing from BASECLASS purchase items. Special rules fr subclasses:
+ - Groceries: further classified as perishable/non-perishable. Perishable requires PREMIUM shipping. (add'l attribute perishable?) NO SALES TAX.
+ - Electronics: taxed based on state delivered to. TX,NM,VA,AZ,AK have NO sales tax. Further classified into fragile and non-fragile. Fragile requires PREMIUM shipping.
+ - Clothing: standard rules apply. NO premium shipping.
+
+Valid operations:
+ - Insert - instantiate object of appropriate type, add it into arraylist.
+ - Search - search for ALL objects with name field as <name> and then output number of objects found.
+ - Delete - delete all entries named cabbage, output how many deleted
+ - Update <name> <quantity> - updates quantity field for the first occurrence of a matching name. Then output new quantity value.
+ - Print - print contents of the shopping cart in order by name. Show all attribute values, total charge for each. At the end, print out total charges for everything (to standard output stream), formatted for readability.
+
+NEED to handle bad output (wrong name, too many spaces, etc.) Report it, abandon it, move on.
+
+Shopping cart is an ARRAYLIST of items (objects), sorted in ascending order by item name.
+In each purchase item class, need to implement a method calculatePrice() that returns final price, for each of these items, based on the aforementioned rules.
+
+Submission instructions:
+ - Code must be organized under Assignment3 package.
+ - main() method is in a driver class called A3Driver.java.
+ - Zip folder containing source files (under src folder), call it Assignment3.
+ - Submit on Canvas.
+
+On-paper design submitted to CANVAS by the end of the day on the designated due date.
+ - System-level use-case diagram
+ - UML model of the needed classes and their relationships
+ - ADT level description for each class created
+ - functional block diagram showing calling relationships between methods
+ - Algorithm needed for the driver logic (main method)

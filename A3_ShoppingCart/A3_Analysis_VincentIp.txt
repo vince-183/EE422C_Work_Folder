@@ -27,7 +27,7 @@ Valid operations:
  - Update <name> <quantity> - updates quantity field for the first occurrence of a matching name. Then output new quantity value.
  - Print - print contents of the shopping cart in order by name. Show all attribute values, total charge for each. At the end, print out total charges for everything (to standard output stream), formatted for readability.
 
-NEED to handle bad output (wrong name, too many spaces, etc.) Report it, abandon it, move on.
+NEED to handle bad input (wrong name, too many spaces, etc.) Report it, abandon it, move on.
 
 Shopping cart is an ARRAYLIST of items (objects), sorted in ascending order by item name.
 In each purchase item class, need to implement a method calculatePrice() that returns final price, for each of these items, based on the aforementioned rules.

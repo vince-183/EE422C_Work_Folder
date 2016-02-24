@@ -1,6 +1,7 @@
 package Assignment3;
 
-public class Grocery extends Item {
+public class Grocery extends Item
+{
 	protected boolean perishable; // true if perishable; false if non-perishable
 	
 	public Grocery (String itemName, double itemPrice, int numItems, int itemWeight, boolean perish)
@@ -12,15 +13,15 @@ public class Grocery extends Item {
 	//override calculatePrice() from item class, since:
 	//  - Perishable groceries require premium shipping
 	//  - No sales tax is added for groceries
-	public double calculatePrice ()
+	public double calculatePrice (boolean premium)
 	{
-		double final_price = price;
+		double final_price = 0;
 		// no sales tax
 		double shippingCost = 20 * weight * quantity;
-		if (perishable) // force premium shipping if grocery is perishable
+		if (premium || perishable) // force premium shipping if grocery is perishable
 			shippingCost *= 1.2;
 		final_price += shippingCost;
-		final_price = Math.round(final_price * 100) / 100.00; // round to the nearest penny
+		final_price = Math.round(final_price * 100) / 100; // round to the nearest penny
 		return final_price;
 	}
 	
@@ -36,11 +37,4 @@ public class Grocery extends Item {
 	{
 		perishable = newPerish;
 	}
-	
-	void printItemAttributes () 
-	{
-		double finalCost = calculatePrice();
-		System.out.printf("Name: %s Price: $%.2f Quantity: %d Weight: %d Perishable: %b ITEM TOTAL: $%.2f\n", name, price, quantity, weight, perishable, finalCost);
-	}
-	
 }

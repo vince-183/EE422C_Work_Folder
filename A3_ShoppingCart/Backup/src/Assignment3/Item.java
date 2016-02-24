@@ -1,32 +1,28 @@
 package Assignment3;
 
-public class Item {
-	//Declare variables for this class. Think about its type: public, protected or private?
+public class Item 
+{
+//Declare variables for this class. Think about its type: public, protected or private?
 	// Vincent: we want to ensure item attributes are not modified without permission, thus they are protected.
 	//          Use get and set methods to properly modify an item's attributes.
 	protected String name;
 	protected double price;
 	protected int quantity;
 	protected int weight;
-
 	
-	// You will need a constructor (Why?). Create it here.
+// You will need a constructor (Why?). Create it here.
 	public Item (String itemName, double itemPrice, int numItems, int itemWeight)
 	{
 		name = itemName;
-		price = Math.round(itemPrice * 100) / 100.00; // round to the nearest cent
-		
-		if (numItems < 0)
-			quantity = 0; // ensure non-negative integer
+		price = Math.round(itemPrice * 100) / 100; // round to the nearest cent
+		if (numItems < 1)
+			quantity = 1; // ensure non-negative integer
 		else
 			quantity = numItems;
-		
-		//Err Msg when quantity is negative?
-		
 		weight = itemWeight;
 	}
 	
-	public double calculatePrice () // This will be overridden by subclasses, as tax and shipping rules change between subitems
+	public double calculatePrice (boolean premium) // This will be overridden by subclasses, as tax and shipping rules change between subitems
 	{
 		double final_price = 0;
 		// Standard rules for price calculation, in order:
@@ -35,7 +31,8 @@ public class Item {
 		//    OR, premium shipping = standard * 1.2
 		final_price = price * 1.1; // %10 sales tax
 		double shippingCost = 20 * weight * quantity;
-		
+		if (premium)
+			shippingCost *= 1.2;
 		final_price += shippingCost;	
 		final_price = Math.round(final_price * 100) / 100; // round to the nearest penny
 		return final_price;

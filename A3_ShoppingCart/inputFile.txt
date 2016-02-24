@@ -1,0 +1,18 @@
+insert groceries cabbage 4.35 5 5 NP
+insert groceries cabbage 3.62 3 5 P
+insert electronics PS3 300 1 10 F NY
+insert electronics PS3 320 1 10 F NY
+insert electronics PS3 310 1 10 NF TX
+insert clothing blueshirt 28.99 3 1
+print
+search cabbage
+search PS3
+delete PS3
+print
+insert electronics PS3 322 1 10 NF TX
+print
+search PS3
+update cabbage 10
+print
+
+

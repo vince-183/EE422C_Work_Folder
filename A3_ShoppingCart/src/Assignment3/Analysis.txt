@@ -1,3 +1,5 @@
+Parsing the document...
+
 Task: Design and implement a "shopping cart" mechanism for an online vendor.
  - Add purchases to shopping cart.
  - Program computes and reports total price for the shopping cart, using BASE PRICE, TAX (as applicable) and SHIPPING COST --- for each item.
@@ -44,3 +46,13 @@ On-paper design submitted to CANVAS by the end of the day on the designated due 
  - ADT level description for each class created
  - functional block diagram showing calling relationships between methods
  - Algorithm needed for the driver logic (main method)
+
+Questions:
+ - How do we deal with invalid input?
+ - Do we want to keep the get & set methods of all attributes, even if they were never called?
+ - If there was an extra word or number in the input parameters, should the program throw an exception and ignore the command? Or, should it let it pass and just ignore the extra parameters?
+
+Assumptions We made:
+ - We didn't know if shipping premium was an option. Thus, we assumed that shipping is STANDARD (no extra cost) UNLESS and item was FORCED to be premium by virtue of fragility or perishableness.
+ - We assumed that the input needed to be perfect (throw out any input with mistakes)
+    - EXCEPT the shipping state - we don't have a way to check whether a state was valid or not (we only checked whether the 'state' parameter was equal to TX, NM, VA, or AK).
